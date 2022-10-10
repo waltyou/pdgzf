@@ -169,8 +169,11 @@ def print_output():
         a = format_output(h)
         print(a)
 
+
 def save_to_file(houses):
     output_file = open("output.json", "w")
+    if not os.path.exists("./data"):
+        os.mkdir("./data")
     csv_file = open("./data/" + str(datetime.now())[:10] + "_order.csv", "w")
     csv_file.write(f"{header}\n")
     for h in houses:
